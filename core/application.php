@@ -16,7 +16,7 @@ class Application {
 
         $loginReason = Session::get("reason");
         if ($loginReason) {
-            Controller::addMsg($loginReason, "Green");
+            Controller::addMsg($loginReason, "Red");
         }
 
         switch (true) {
