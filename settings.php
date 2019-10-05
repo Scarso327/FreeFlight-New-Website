@@ -12,7 +12,7 @@ return array(
     'version' => '1',
     'db-type' => 'mysql',
     'db-host' => 'localhost',
-    'db-name' => array('altislife','PHXFactions'),
+    'db-name' => 'ffreborn',
     'db-user' => 'root',
     'db-pass' => '',
     'db-set' => 'utf8',
