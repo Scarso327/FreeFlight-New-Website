@@ -9,6 +9,14 @@ class Accounts {
         return true;
     }
 
+    public function GetUser($steamid) {
+        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT * FROM accounts WHERE steamid = :steamid limit 1");
+        $query->execute(array(":steamid" => $steamid));
+        
+        if ($query->rowCount() == 0) { return false; } 
+        return $query->fetch();
+    }
+
     public function createUser($name = null, $steamid = null) {
         if($name != null && $steamid != null) {
             $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("INSERT INTO accounts (name, steamID) VALUES (:name, :steamID)");
@@ -32,9 +40,8 @@ class Accounts {
             ':steampfpmed' => $steaminfo["steam-pfp-medium"],
             ':steampfplarge' => $steaminfo["steam-pfp-full"]
         ));
-        if($query->rowCount() > 0) {
-            return true;
-        }
+        
+        if($query->rowCount() > 0) { return true; }
         return false;
     }
 
