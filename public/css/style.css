@@ -54,6 +54,10 @@ nav.main-nav .nav-content .nav-item.active {
     background-color: #181b1e;
 }
 
+nav.main-nav .nav-content .nav-item.right {
+    margin-left: auto;
+}
+
 nav.main-nav .nav-content .nav-item .fas {
     line-height: 80px;
 }

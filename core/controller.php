@@ -7,6 +7,44 @@ class Controller {
     public static $breadcrumbs = array();
     public static $messages = array();
 
+    public function __construct($auth = false) {
+        Session::start(); // Start a Session to be used.
+        
+        if ((isset($_GET['login']))) { exit; }
+
+        // Session = Alive...
+        if (Session::get("steamid")) {
+            // Cookie Revival Check...
+            if (!(isset($_COOKIE['remember_token'])) || !(isset($_COOKIE['steam_id']))) {
+                $token = Accounts::setToken($player->steamid);
+                if (!$token) { Account::logout(true); exit; }
+
+                setcookie("steam_id", Session::get("steamid"), time()+3600 * 24 * 365, "/");
+                setcookie("remember_token", $token, time()+3600 * 24 * 365, "/");
+            }
+        } else {
+            // Session Revival Check...
+            if (isset($_COOKIE['remember_token']) && isset($_COOKIE['steam_id'])) {
+                if (!(Accounts::checkToken($_COOKIE['steam_id'], $_COOKIE['remember_token']))) {
+                    Account::logout(false);
+                    Session::set("reason", "Session Expired");
+                    header ("Location: ".URL."login");
+                    exit;
+                }
+
+                Steam::resync($_COOKIE['steam_id']);
+            }
+        }
+
+        new Account (Session::get("steamid"));
+        
+        // Check our login...
+        if ($auth && !Account::isLoggedIn()) {
+            Session::set("reason", "Session Expired");
+            header ("Location: ".URL); exit;
+        }
+    }
+
     public static function addCrumb($crumb) {
         array_push(self::$breadcrumbs, $crumb);
     }

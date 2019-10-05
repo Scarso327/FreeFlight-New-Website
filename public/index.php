@@ -1,4 +1,5 @@
 <?php
+ob_start(); // For the "remember session"...
 
 define("ROOT", dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define("WEB", ROOT . 'public' . DIRECTORY_SEPARATOR);

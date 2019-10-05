@@ -9,7 +9,15 @@ class Application {
     public function __construct() {
         self::URLSetup();
 
+        if (isset($_GET['logout'])) { Account::logout(); } // Logout...
+        new Controller();
+
         Controller::addMsg("If you wish to view the old site use this link. <a href='".URL."old/' target='_blank'>Site</a>", "Green");
+
+        $loginReason = Session::get("reason");
+        if ($loginReason) {
+            Controller::addMsg($loginReason, "Green");
+        }
 
         switch (true) {
             case ($this->controller):
@@ -49,5 +57,18 @@ class Application {
             unset($url[0], $url[1]);
             $this->params = array_values($url);
         }
+    }
+
+    public static function randomStrGen($length = 64) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        
+        $str = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $str .= $characters[rand(0, $charactersLength - 1)];
+        }
+
+        return $str;
     }
 }

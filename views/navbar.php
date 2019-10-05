@@ -9,12 +9,25 @@
         <a class="nav-item" href="">
             Community
         </a>
-        <a class="nav-profile" href="">
-            <img src="https://phoenixrp.co.uk/uploads/monthly_2019_06/logo_better_s_300.png.f6d4e375e36a280e8d7688554dce6950.png"/>
-            <span>Scarso</span>
-        </a>
-        <a class="nav-item" href="">
-            <span class="fas fa-sign-out-alt"></span> 
-        </a>
+
+        <?php
+        if (Account::isLoggedIn()) {
+            ?>
+            <a class="nav-profile" href="">
+                <img src="<?=Session::get("steaminfo")["steam-pfp-full"];?>" alt="PFP"/>
+                <span><?=Session::get("steaminfo")["steam-name"];?></span>
+            </a>
+            <a class="nav-item" href="<?=URL;?>?logout">
+                <span class="fas fa-sign-out-alt"></span> 
+            </a>
+            <?php
+        } else {
+            ?>
+            <a class="nav-item right" href="<?=URL;?>login">
+                Login <span class="fas fa-sign-in-alt"></span> 
+            </a>
+            <?php
+        }
+        ?>
     </div>
 </nav>
