@@ -58,16 +58,18 @@ class Steam {
             $json_decoded = json_decode($json_object);
             foreach ($json_decoded->response->players as $player)
             {  
+                $sName = Filter::cleanName($player->personaname);
+
                 // If they don't have access we'll give them access if they're in a faction...
                 if (!Accounts::IsUser($steamid)) {
-                    if (!Accounts::createUser($player->personaname, $steamid)) { self::OnFailedLogin("Creation Failed"); exit; } // If it fails to create then it'll become "No Access"...
+                    if (!Accounts::createUser($sName, $steamid)) { self::OnFailedLogin("Creation Failed"); exit; } // If it fails to create then it'll become "No Access"...
                 }
 
                 $token = Accounts::setToken($steamid); // Get our remember token...
                 if (!$token) { self::OnFailedLogin("Token Creation Fail..."); exit; }
 
                 $steaminfo = array(
-                    'steam-name' => $player->personaname,
+                    'steam-name' => $sName,
                     'steam-pfp' => $player->avatar,
                     'steam-pfp-medium' => $player->avatarmedium,
                     'steam-pfp-full' => $player->avatarfull

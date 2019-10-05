@@ -81,4 +81,8 @@ class Filter
     public static function fixString ($input) {
         return trim(preg_replace('/\s\s+/', ' ', preg_replace("/[^a-zA-Z0-9|:\/.\s\@\-\>]/", "", $input)));
     }
+
+    public static function cleanName($name) {
+        return preg_replace('/[^A-Za-z0-9\ ]/', '', $name);
+    }
 }
