@@ -1,0 +1,52 @@
+body {
+	margin: 0;
+	color: black;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+	font-size: 55px;
+}
+
+#main {
+	margin-bottom: 15px;
+}
+
+.box {
+	margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.63);
+    margin-bottom: 15px;
+border-radius: 25px;
+}
+
+.container {
+	padding-top: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+	width: 83.5%;
+}
+	
+@media (min-width: 767px) {
+	.secondSection {
+		width: 24%;
+		float: right;
+
+	}
+	.mainSection {
+		width: 75%;
+		float: left;
+	}
+}
+
+@media (max-width: 767px) {
+	.secondSection {
+		display: none;
+	}
+}
+
+.boxcontainer {
+	padding: 12px;
+}

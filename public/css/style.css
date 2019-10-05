@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: "Whitney", Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+    color: #c8c8c8;
+    background-color: #272b30;
+}
+
+a {
+    text-decoration: none;
+    color: #b4b4b4;
+}
+
+a:hover {
+    color: #a2a2a2;
+}
+
+.site-message {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+nav.main-nav {
+    background-color: #23262b;
+    min-height: 80px;
+}
+
+nav.main-nav .nav-content {
+    display: flex;
+    flex-direction: row;
+}
+
+nav.main-nav .nav-content img {
+    max-height: 80px;
+}
+
+nav.main-nav .nav-content .nav-item {
+    text-align: center;
+    line-height: 80px;
+    padding: 0 14px;
+    margin: 0 5px;
+}
+
+nav.main-nav .nav-content .nav-item:hover {
+    color: white;
+}
+
+nav.main-nav .nav-content .nav-item.active {
+    color: white;
+    background-color: #181b1e;
+}
+
+nav.main-nav .nav-content .nav-item .fas {
+    line-height: 80px;
+}
+
+nav.main-nav .nav-content .nav-profile {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    line-height: 40px;
+}
+
+nav.main-nav .nav-content .nav-profile img {
+    max-height: 40px;
+    margin: auto;
+    border-radius: 5px 0 0 5px;
+}
+
+nav.main-nav .nav-content .nav-profile span {
+    margin: auto;
+    max-height: 40px;
+    border-radius: 0 5px 5px 0;
+    padding: 0 5px;
+    width: fit-content;
+    color: #c8c8c8;
+    background-color: #181b1e;
+}
+
+nav.main-nav .nav-content .nav-profile:hover span {
+    color: white;
+}

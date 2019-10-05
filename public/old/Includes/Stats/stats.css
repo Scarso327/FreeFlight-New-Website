@@ -1,0 +1,14 @@
+.statSections {
+	margin-bottom: 10px;
+}
+
+.license {
+	display: inline-block;
+	background-color: #d32f2f;
+	margin-bottom: 2px;
+	padding: 2px;
+}
+
+.green {
+	background-color: #2A8713;
+}
