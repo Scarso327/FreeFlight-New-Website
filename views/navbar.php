@@ -3,23 +3,29 @@
         <div class="site-logo">
             <img src="<?=URL;?>img/logo-noname-white.png"/>
         </div>
-        <a class="nav-item active" href="">
+        <a class="nav-item<?php if (View::ButtonActive("Home")) { echo ' active'; } ?>" href="<?=URL;?>">
             Home
         </a>
-        <a class="nav-item" href="">
-            Community
+        <a class="nav-item<?php if (View::ButtonActive("Forums")) { echo ' active'; } ?>" href="<?=URL;?>forums/">
+            Forums
         </a>
-
         <?php
         if (Account::isLoggedIn()) {
             ?>
-            <a class="nav-profile" href="">
-                <img src="<?=Session::get("steaminfo")["steam-pfp-full"];?>" alt="PFP"/>
-                <span><?=Session::get("steaminfo")["steam-name"];?></span>
-            </a>
-            <a class="nav-item" href="<?=URL;?>?logout">
-                <span class="fas fa-sign-out-alt"></span> 
-            </a>
+            <div class = "nav-item<?php if (View::ButtonActive(Session::get("steaminfo")["steam-name"])) { echo ' active'; } ?> right dropdown">
+                <a class="nav-profile" href="">
+                    <img src="<?=Session::get("steaminfo")["steam-pfp-medium"];?>" alt="PFP"/>
+                    <span><?=Session::get("steaminfo")["steam-name"];?> <span class="fas fa-caret-down"></span></span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="<?=URL;?>forums/user/<?=Session::get("steamid");?>">
+                        Profile
+                    </a>
+                    <a href="<?=URL;?>?logout">
+                        Logout
+                    </a>
+                </div>
+            </div>
             <?php
         } else {
             ?>

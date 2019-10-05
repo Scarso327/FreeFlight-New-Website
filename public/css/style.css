@@ -26,7 +26,7 @@ a:hover {
 
 nav.main-nav {
     background-color: #23262b;
-    min-height: 80px;
+    min-height: 64px;
 }
 
 nav.main-nav .nav-content {
@@ -35,12 +35,12 @@ nav.main-nav .nav-content {
 }
 
 nav.main-nav .nav-content img {
-    max-height: 80px;
+    max-height: 64px;
 }
 
 nav.main-nav .nav-content .nav-item {
     text-align: center;
-    line-height: 80px;
+    line-height: 64px;
     padding: 0 14px;
     margin: 0 5px;
 }
@@ -59,7 +59,7 @@ nav.main-nav .nav-content .nav-item.right {
 }
 
 nav.main-nav .nav-content .nav-item .fas {
-    line-height: 80px;
+    line-height: 64px;
 }
 
 nav.main-nav .nav-content .nav-profile {
@@ -67,24 +67,47 @@ nav.main-nav .nav-content .nav-profile {
     flex-direction: row;
     margin-left: auto;
     line-height: 40px;
+    height: 100%;
 }
 
 nav.main-nav .nav-content .nav-profile img {
-    max-height: 40px;
+    max-height: 32px;
     margin: auto;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
 }
 
 nav.main-nav .nav-content .nav-profile span {
     margin: auto;
-    max-height: 40px;
-    border-radius: 0 5px 5px 0;
+    /* border-radius: 0 5px 5px 0; */
     padding: 0 5px;
     width: fit-content;
     color: #c8c8c8;
-    background-color: #181b1e;
+    /* background-color: #181b1e; */
 }
 
 nav.main-nav .nav-content .nav-profile:hover span {
     color: white;
+}
+
+nav.main-nav .nav-content .dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+nav.main-nav .nav-content .dropdown .dropdown-content {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    min-width: 130px;
+    background-color: #23262b;
+}
+
+nav.main-nav .nav-content .dropdown .dropdown-content a {
+    max-height: 16px;
+    line-height: normal;
+    padding: 5px;
+}
+
+nav.main-nav .nav-content .dropdown .dropdown-content a:hover {
+    color: white;
+    background-color: black;
 }
