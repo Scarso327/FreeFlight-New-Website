@@ -29,6 +29,27 @@
                                         <dd><?=($section->topicCount == 1) ? "Post" : "Posts";?></dd>
                                     </dl>
                                 </div>
+                                <div class="item-section last-post">
+                                    <?php
+                                    $lastTopic = Topics::getLastTopic($section->id);
+
+                                    if ($section->topicCount >= 1 && $lastTopic) {
+                                        ?>
+                                        <div class="last-post-card">
+                                            <a href="<?=URL;?>forums/user/<?=$lastTopic->steamID;?>"><img src="<?=$lastTopic->steampfpmed;?>"/></a>
+                                            <dl>
+                                                <dt><a href="<?=URL;?>forums/forum/<?=$section->id;?>/<?=$lastTopic->id;?>"><?=$lastTopic->title;?></a></dt>
+                                                <dd><?=Application::formatTime($lastTopic->posted);?></dd>
+                                            </dl>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <p>No posts here yet</p>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
                             </li>
                             <?php
                         }

@@ -204,8 +204,8 @@ main {
 .forum-section .forum-content .forum-item .item-section.main {
     padding: 15px 10px;
     line-height: 32px;
-    flex-grow: 2;
     width: 40%;
+    margin-right: auto;
 }
 
 .forum-section .forum-content .forum-item .item-section.main a {
@@ -216,15 +216,58 @@ main {
     color: white;
 }
 
-.forum-section .forum-content .forum-item .item-section.stats {
+.forum-section .forum-content .forum-item .item-section.stats, .forum-section .forum-content .forum-item .item-section.last-post {
     padding: 15px 10px;
-    flex-grow: 2;
     text-align: center;
-    max-width: 100px;
+    max-width: 75px;
+}
+
+.forum-section .forum-content .forum-item .item-section.stats dd, .forum-section .forum-content .forum-item .item-section.last-post dd {
+    opacity: 0.6;
 }
 
 .forum-section .forum-content .forum-item .item-section.stats dd {
+    font-size: 12px;
+}
+
+.forum-section .forum-content .forum-item .item-section.last-post {
+    text-align: left;
+    min-width: 200px;
+}
+
+.forum-section .forum-content .forum-item .item-section.last-post .last-post-card {
+    display: inline-flex;
+}
+
+.forum-section .forum-content .forum-item .item-section.last-post img {
+    margin-right: 5px;
+    border-radius: 25px;
+    height: 32px;
+    width: 32px;
+    opacity: 0.9;
+}
+
+.forum-section .forum-content .forum-item .item-section.last-post a:hover img {
+    opacity: 1;
+}
+
+.forum-section .forum-content .forum-item .item-section.last-post dt {
+    max-width: 125px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.forum-section .forum-content .forum-item .item-section.last-post dd {
+    font-size: 12px;
+}
+
+.forum-section .forum-content .forum-item .item-section.last-post p {
+    display: inline-block;
+    width: 100%;
     opacity: 0.6;
+    font-size: 12px;
+    line-height: 32px;
 }
 
 .icon .icon-circle {
