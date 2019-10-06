@@ -111,6 +111,7 @@ nav.main-nav .nav-content .dropdown:hover .dropdown-content {
 
 nav.main-nav .nav-content .dropdown .dropdown-content {
     position: absolute;
+    z-index: 9999;
     display: none;
     flex-direction: column;
     min-width: 130px;
