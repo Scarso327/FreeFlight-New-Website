@@ -111,3 +111,53 @@ nav.main-nav .nav-content .dropdown .dropdown-content a:hover {
     color: white;
     background-color: black;
 }
+
+.content-box {
+    background-color: #23262b;
+    padding: 10px 24px;
+    margin: 10px 0;
+}
+
+main {
+    min-height: calc(100vh - 128px);
+}
+
+footer {
+    margin: 0;
+    background-color: #181B1D;
+}
+
+footer .social {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0;
+}
+
+footer .social .media-list {    
+    display: inline-flex;
+    height: 64px;
+    margin-left: 25px;
+    padding-left: 25px;
+    vertical-align: middle;
+    border-left: 1px solid #5b5e60;
+}
+
+footer .social .media-list a {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+footer .social .media-list a:not(:last-child) {
+    margin-right: 15px;
+}
+
+footer .social .media-list a span {
+    line-height: 64px;
+}
+
+footer .copyright {
+    padding-bottom: 15px;
+    color: #9d9d9d;
+}

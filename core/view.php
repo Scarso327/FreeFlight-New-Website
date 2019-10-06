@@ -44,24 +44,31 @@ class View {
             echo "
             </head>
             <body>
-            ";
-                if(is_array($files) && (count($files) > 0)) {
-                    foreach($files as $filename) { 
+                <main>";
+                    require VIEWS . 'site-notifications.php';
+                    require VIEWS . 'navbar.php';
+
+                    if(is_array($files) && (count($files) > 0)) {
+                        foreach($files as $filename) { 
+                            if(file_exists($filename . '.php')) {
+                                require $filename . '.php';
+                            } else {
+                                echo $filename;
+                            }
+                        }
+                    } else {
+                        $filename = $files;
                         if(file_exists($filename . '.php')) {
                             require $filename . '.php';
                         } else {
                             echo $filename;
                         }
                     }
-                } else {
-                    $filename = $files;
-                    if(file_exists($filename . '.php')) {
-                        require $filename . '.php';
-                    } else {
-                        echo $filename;
-                    }
-                }
-            echo "
+                echo "
+                </main>
+                ";
+                require VIEWS . 'footer.php';
+                echo "
             </body>
         </html>
         ";
