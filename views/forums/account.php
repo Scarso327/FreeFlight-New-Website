@@ -16,6 +16,29 @@
         </ul>
     </div>
 </header>
-<section class="center container">
-    <h2>Looking empty?</h2>
+<section class="flex-grid container">
+    <div class="flex-item main-body">
+        <div class="content-box">
+            <h4>Activity</h4>
+            <?php
+            if ($this->activity) {
+                foreach($this->activity as $activity) {
+                    ?>
+                    <div class="activity-card">
+                        <img src="<?=$activity->steampfpmed;?>"/>
+                        <div class="activity-info">
+                            <a href="<?=URL;?>forums/forum/<?=$activity->sID;?>/<?=$activity->id;?>"><h1><?=$activity->title;?></h1></a>
+                            <p><a href="<?=URL;?>forums/user/<?=$activity->steamID;?>"><?=$activity->steamName;?></a> posted a topic in <a href="<?=URL;?>forums/forum/<?=$activity->sID;?>"><?=$activity->sTitle;?></a>, <?=Application::formatTime($activity->posted);?></p>
+                        </div>
+                    </div>
+                    <?php
+                }
+            } else {
+                ?>
+                <p>It would appear this user has not interacted with the site...</p>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
 </section>

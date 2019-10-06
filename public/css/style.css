@@ -45,7 +45,7 @@ a:hover {
 }
 
 .container {
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
 }
 
@@ -131,6 +131,7 @@ nav.main-nav .nav-content .dropdown .dropdown-content a {
     max-height: 16px;
     line-height: normal;
     padding: 5px;
+    text-align: left;
 }
 
 nav.main-nav .nav-content .dropdown .dropdown-content a:hover {
@@ -142,6 +143,7 @@ nav.main-nav .nav-content .dropdown .dropdown-content a:hover {
     background-color: #23262b;
     padding: 24px;
     margin: 10px 0;
+    border-radius: 10px;
 }
 
 main {

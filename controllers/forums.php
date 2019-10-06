@@ -77,7 +77,8 @@ class Forums extends Controller {
 
         parent::buildPage(array(VIEWS . "forums/account"), array(
             "css" => array("user.css"),
-            "member" => $member
+            "member" => $member,
+            "activity" => Topics::getTopicFromUser($member->steamID)
         ));
     }
 }
