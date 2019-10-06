@@ -10,12 +10,12 @@ a {
     color: #b4b4b4;
 }
 
-a:hover {
-    color: #a2a2a2;
+a.slow-trans {
+    transition: .2s;
 }
 
-.breadcrumbs {
-    padding: 20px 0;
+a:hover {
+    color: white;
 }
 
 .breadcrumbs span {
