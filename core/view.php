@@ -2,7 +2,7 @@
 // Builds our pages
 class View {
 
-    public function __construct($files, $data = null) {
+    public function __construct($files, $data = null, $buildFrame = true) {
         $title = Controller::$currentPage;
 
         $this->css = null;
@@ -45,33 +45,41 @@ class View {
             </head>
             <body>
                 <main>";
-                    require VIEWS . 'site-notifications.php';
-                    require VIEWS . 'navbar.php';
-
-                    if(is_array($files) && (count($files) > 0)) {
-                        foreach($files as $filename) { 
-                            if(file_exists($filename . '.php')) {
-                                require $filename . '.php';
-                            } else {
-                                echo $filename;
-                            }
-                        }
-                    } else {
-                        $filename = $files;
-                        if(file_exists($filename . '.php')) {
-                            require $filename . '.php';
-                        } else {
-                            echo $filename;
-                        }
+                    if ($buildFrame) {
+                        require VIEWS . 'site-notifications.php';
+                        require VIEWS . 'navbar.php';
                     }
+
+                    self::includeFiles($files);
                 echo "
                 </main>
                 ";
-                require VIEWS . 'footer.php';
+                if ($buildFrame) {
+                    require VIEWS . 'footer.php';
+                }
                 echo "
             </body>
         </html>
         ";
+    }
+
+    public function includeFiles($files) {
+        if(is_array($files) && (count($files) > 0)) {
+            foreach($files as $filename) { 
+                if(file_exists($filename . '.php')) {
+                    require $filename . '.php';
+                } else {
+                    echo $filename;
+                }
+            }
+        } else {
+            $filename = $files;
+            if(file_exists($filename . '.php')) {
+                require $filename . '.php';
+            } else {
+                echo $filename;
+            }
+        }
     }
 
     public static function ButtonActive($page) {

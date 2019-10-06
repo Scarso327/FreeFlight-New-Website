@@ -5,6 +5,11 @@ body {
     background-color: #272b30;
 }
 
+h1, h2, h3, h4, h5, p, ul, ol, li {
+    margin: 0;
+    padding: 0;
+}
+
 a {
     text-decoration: none;
     color: #b4b4b4;
@@ -135,12 +140,95 @@ nav.main-nav .nav-content .dropdown .dropdown-content a:hover {
 
 .content-box {
     background-color: #23262b;
-    padding: 10px 24px;
+    padding: 24px;
     margin: 10px 0;
 }
 
 main {
     min-height: calc(100vh - 128px);
+}
+
+.flex-grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-grid .main-body {
+    flex-grow: 2;
+}
+
+.flex-grid .flex-item:not(:last-child) {
+    padding-right: 15px;
+}
+
+.side-bar {
+    min-width: 25%;
+    max-width: 25%;
+}
+
+.side-bar .sidebar-footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(245, 245, 245, .1);
+}
+
+.forum-section {
+    margin-top: 20px;
+    background-color: #1e1e1e;
+}
+
+.forum-section .forum-header {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px 15px;
+    background-color: #304d66;
+}
+
+.forum-section .forum-content {
+    list-style: none;
+}
+
+.forum-section .forum-content .forum-item {
+    display: flex;
+    flex-direction: row;
+    height: 64px;
+}
+
+.forum-section .forum-content .forum-item .item-section.icon {
+    padding: 15px 10px 15px 20px;
+}
+
+.forum-section .forum-content .forum-item .item-section.main {
+    padding: 15px 10px;
+    line-height: 32px;
+}
+
+.forum-section .forum-content .forum-item .item-section.main a {
+    color: #c8c8c8;
+}
+
+.forum-section .forum-content .forum-item .item-section.main a:hover {
+    color: white;
+}
+
+.icon .icon-circle {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #353c41;
+}
+
+.icon .icon-circle .fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    line-height: 32px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
 }
 
 footer {

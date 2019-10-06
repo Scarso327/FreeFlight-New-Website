@@ -1,0 +1,22 @@
+.topic-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.topic-header .topic-header-info {
+    padding: 10px;
+    text-transform: none;
+}
+
+.topic-header .topic-header-info h1 {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.topic-header .topic-header-info p a {
+    color: #c8c8c8;
+}
+
+.topic-header .topic-header-info p a:hover {
+    color: #b4b4b4;
+}

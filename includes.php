@@ -13,3 +13,5 @@ include("controllers/home.php");
 
 include("models/accounts.php");
 include("models/steam.php");
+include("models/forums.php");
+include("models/topics.php");
