@@ -5,7 +5,7 @@ body {
     background-color: #272b30;
 }
 
-h1, h2, h3, h4, h5, p, ul, ol, li {
+h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd {
     margin: 0;
     padding: 0;
 }
@@ -204,6 +204,8 @@ main {
 .forum-section .forum-content .forum-item .item-section.main {
     padding: 15px 10px;
     line-height: 32px;
+    flex-grow: 2;
+    width: 40%;
 }
 
 .forum-section .forum-content .forum-item .item-section.main a {
@@ -212,6 +214,17 @@ main {
 
 .forum-section .forum-content .forum-item .item-section.main a:hover {
     color: white;
+}
+
+.forum-section .forum-content .forum-item .item-section.stats {
+    padding: 15px 10px;
+    flex-grow: 2;
+    text-align: center;
+    max-width: 100px;
+}
+
+.forum-section .forum-content .forum-item .item-section.stats dd {
+    opacity: 0.6;
 }
 
 .icon .icon-circle {

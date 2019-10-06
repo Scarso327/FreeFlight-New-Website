@@ -23,6 +23,12 @@
                                 <div class="item-section main">
                                     <a href="<?=URL;?>forums/forum/<?=$section->id;?>"><h4><?=$section->title;?></h4></a>
                                 </div>
+                                <div class="item-section stats">
+                                    <dl>
+                                        <dt><?=$section->topicCount;?></dt>
+                                        <dd><?=($section->topicCount == 1) ? "Post" : "Posts";?></dd>
+                                    </dl>
+                                </div>
                             </li>
                             <?php
                         }
