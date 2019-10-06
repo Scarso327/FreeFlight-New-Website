@@ -14,6 +14,22 @@ a:hover {
     color: #a2a2a2;
 }
 
+.breadcrumbs {
+    padding: 20px 0;
+}
+
+.breadcrumbs span {
+    color: #a2a2a2;
+}
+
+.breadcrumbs a {
+    color: #919191;
+}
+
+.breadcrumbs a:hover {
+    color: #828282;
+}
+
 .site-message {
     text-align: center;
     padding: 10px 0;
