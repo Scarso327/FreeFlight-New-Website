@@ -17,6 +17,14 @@ class Accounts {
         return $query->fetch();
     }
 
+    public function UpdateLastVisit($steamid) {
+        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("UPDATE accounts SET last_visit = NOW() WHERE steamid = :steamid");
+        $query->execute(array(':steamid' => $steamid));
+        
+        if($query->rowCount() > 0) { return true; }
+        return false;
+    }
+
     public function createUser($name = null, $steamid = null) {
         if($name != null && $steamid != null) {
             $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("INSERT INTO accounts (name, steamID) VALUES (:name, :steamID)");

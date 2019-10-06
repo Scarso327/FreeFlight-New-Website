@@ -6,6 +6,8 @@ class Account {
     // Create the new "Account Session"
     public function __construct($steamid) {
         self::$steamid = $steamid;
+
+        Accounts::UpdateLastVisit($steamid);
     }
 
     public function isLoggedIn() {

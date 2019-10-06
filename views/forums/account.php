@@ -12,7 +12,7 @@
     <div class="header-content">
         <ul class="user-stats container">
             <li><h4>Member Since</h4><?=date("d/m/Y", strtotime($this->member->joined));?></li>
-            <li><h4>Last Login</h4><?=Application::formatTime($this->member->last_login);?></li>
+            <li><h4>Last Visit</h4><?=Application::formatTime($this->member->last_visit);?></li>
         </ul>
     </div>
 </header>
