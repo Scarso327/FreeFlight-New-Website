@@ -26,8 +26,12 @@ a:hover {
     color: #919191;
 }
 
+.breadcrumbs a.active {
+    color: #b4b4b4;
+}
+
 .breadcrumbs a:hover {
-    color: #828282;
+    color: #b4b4b4;
 }
 
 .site-message {

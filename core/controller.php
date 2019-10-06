@@ -55,8 +55,10 @@ class Controller {
 
     public static function buildCrumbs() {
         foreach (self::$breadcrumbs as $crumb) {
-            echo '<a href="'.URL.$crumb[1].'">'.$crumb[0].'</a>';
-        
+            ?>
+            <a <?php if ($crumb == end(self::$breadcrumbs)) { echo 'class="active"'; } ?>href="<?=URL.$crumb[1];?>"><?=$crumb[0];?></a>
+            <?php
+
             if ($crumb != end(self::$breadcrumbs)) {
                 echo ' <span class="slash">/</span> ';
             }
