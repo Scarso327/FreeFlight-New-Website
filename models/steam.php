@@ -58,7 +58,7 @@ class Steam {
             $json_decoded = json_decode($json_object);
             foreach ($json_decoded->response->players as $player)
             {  
-                $sName = Filter::cleanName($player->personaname);
+                $sName = $player->personaname;
 
                 // If they don't have access we'll give them access if they're in a faction...
                 if (!Accounts::IsUser($steamid)) {
