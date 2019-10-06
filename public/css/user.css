@@ -1,0 +1,72 @@
+.user-header {
+    position: relative;
+    height: 250px;
+    background-color: black;
+    overflow: hidden;
+}
+
+.user-header img.banner {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.user-header .user-info {
+    position: relative;
+    display: flex;
+}
+
+.user-header .user-info img {
+    height: 150px;
+    width: auto;
+    margin: 50px 0;
+    margin-right: 25px;
+    border-radius: 5px;
+}
+
+.user-header .user-info .name-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+}
+
+.user-header .user-info .name-block h3 {
+    font-size: 44px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.header-content {
+    height: fit-content;
+    background-color: #1F2226;
+}
+
+.header-content .user-stats {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.header-content .user-stats li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-content .user-stats li:not(:last-child) {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid #5b5e60;
+}
+
+.header-content .user-stats li, .header-content .user-stats h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    list-style: none;
+}
+
+.header-content .user-stats h4 {
+    opacity: 0.6;
+    vertical-align: middle;
+}

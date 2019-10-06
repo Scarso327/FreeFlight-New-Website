@@ -12,6 +12,8 @@ class Forums extends Controller {
     }
 
     public function user($steamid = null) {
+        Controller::addCrumb(array("Users", "forums/user/".$steamid));
+
         $member = Accounts::GetUser($steamid);
 
         if (!$member) {
@@ -20,7 +22,11 @@ class Forums extends Controller {
         }
 
         Controller::$currentPage = $member->steamName;
+        Controller::addCrumb(array(Controller::$currentPage, "forums/user/".$steamid));
 
-        parent::buildPage(array(VIEWS . "site-notifications", VIEWS . "navbar"));
+        parent::buildPage(array(VIEWS . "forums/account"), array(
+            "css" => array("user.css"),
+            "member" => $member
+        ));
     }
 }
