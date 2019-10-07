@@ -12,8 +12,11 @@
                 foreach($this->topics as $topic) {
                     ?>
                     <li class="forum-item">
-                        <div class="item-section main">
-                            <a href="<?=URL;?>forums/forum/<?=$this->section->id;?>/<?=$topic->tID;?>"><h4><?=$topic->title;?></h4></a>
+                        <div class="item-section main section">
+                            <dl>
+                                <dt><a href="<?=URL;?>forums/forum/<?=$this->section->id;?>/<?=$topic->tID;?>"><h4><?=$topic->title;?></h4></a></dt>
+                                <dd>By <a href="<?=URL;?>forums/user/<?=$topic->steamID;?>"><?=$topic->steamName?></a>, <?=Application::formatTime($topic->posted);?></dd>
+                            </dl>
                         </div>
                         <div class="item-section stats">
                             <dl>

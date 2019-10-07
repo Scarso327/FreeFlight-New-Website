@@ -210,6 +210,10 @@ main {
     margin-right: auto;
 }
 
+.forum-section .forum-content .forum-item .item-section.main.section {
+    line-height: normal;
+}
+
 .forum-section .forum-content .forum-item .item-section.main a {
     color: #c8c8c8;
 }
@@ -224,11 +228,11 @@ main {
     max-width: 75px;
 }
 
-.forum-section .forum-content .forum-item .item-section.stats dd, .forum-section .forum-content .forum-item .item-section.last-post dd {
+.forum-section .forum-content .forum-item .item-section.main.section dd, .forum-section .forum-content .forum-item .item-section.stats dd, .forum-section .forum-content .forum-item .item-section.last-post dd {
     opacity: 0.6;
 }
 
-.forum-section .forum-content .forum-item .item-section.stats dd {
+.forum-section .forum-content .forum-item .item-section.main.section dd, .forum-section .forum-content .forum-item .item-section.stats dd {
     font-size: 12px;
 }
 

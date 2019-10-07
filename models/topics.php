@@ -2,7 +2,7 @@
 
 class Topics {
     public function getTopics($section) {
-        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT id AS 'tID', title, (SELECT COUNT(id) FROM forum_posts WHERE section_id = :id AND topic_id = tID) as replyCount FROM forum_posts WHERE section_id = :id AND topic_id = -1 ORDER BY posted DESC");
+        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT forum_posts.id AS 'tID', title, accounts.steamName, accounts.steamID, (SELECT COUNT(id) FROM forum_posts WHERE section_id = :id AND topic_id = tID) as replyCount, posted FROM forum_posts INNER JOIN accounts WHERE section_id = :id AND accounts.steamID = author AND topic_id = -1 ORDER BY posted DESC");
         $query->execute(array(":id" => $section));
         
         if ($query->rowCount() == 0) { return false; } 
