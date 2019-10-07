@@ -26,8 +26,9 @@ class Forums extends Controller {
             exit;
         }
 
-        Controller::$subPage = $section->title;
-        Controller::addCrumb(array(Controller::$subPage, "forums/forum/".$forum));
+        Controller::$currentPage = $section->title;
+        Controller::$subPage = "Forums";
+        Controller::addCrumb(array(Controller::$currentPage, "forums/forum/".$forum));
 
         if ($topic) {
             $topic = Topics::getTopic($topic);
@@ -37,8 +38,9 @@ class Forums extends Controller {
                 exit;
             }
         
-            Controller::$subPage = $topic->title;
-            Controller::addCrumb(array(Controller::$subPage, "forums/forum/".$forum."/".$topic->id));
+            Controller::$currentPage = $topic->title;
+            Controller::$subPage = "Forums";
+            Controller::addCrumb(array(Controller::$currentPage, "forums/forum/".$forum."/".$topic->id));
             
             parent::buildPage(array(VIEWS . "forums/global"), array(
                 "css" => array("news.css", "topic.css"),
