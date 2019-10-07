@@ -37,6 +37,14 @@ class Topics {
         return $query->fetchAll();
     }
 
+    public function countPostsByUser($steamid) {
+        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT COUNT(id) as `count` FROM forum_posts WHERE author = :sid");
+        $query->execute(array(":sid" => $steamid));
+        
+        if ($query->rowCount() == 0) { return false; } 
+        return $query->fetch();
+    }
+
     public function getReplies($topic) {
         $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT forum_posts.id, forum_posts.title, forum_posts.content, accounts.steamName, accounts.steamID, accounts.steampfpmed, accounts.steampfplarge, forum_posts.posted  FROM forum_posts INNER JOIN accounts WHERE accounts.steamID = forum_posts.author AND forum_posts.topic_id = :id ORDER BY posted ASC");
         $query->execute(array(":id" => $topic));
