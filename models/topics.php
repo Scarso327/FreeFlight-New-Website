@@ -10,7 +10,7 @@ class Topics {
     }
 
     public function getTopic($id) {
-        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT forum_posts.id, forum_posts.title, forum_posts.content, accounts.steamName, accounts.steamID, accounts.steampfpmed, forum_posts.posted FROM forum_posts INNER JOIN accounts WHERE forum_posts.id = :id AND accounts.steamID = forum_posts.author AND topic_id = -1 LIMIT 1");
+        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT forum_posts.id, forum_posts.title, forum_posts.content, accounts.steamName, accounts.steamID, accounts.steampfpmed, accounts.steampfplarge, forum_posts.posted FROM forum_posts INNER JOIN accounts WHERE forum_posts.id = :id AND accounts.steamID = forum_posts.author AND topic_id = -1 LIMIT 1");
         $query->execute(array(":id" => $id));
         
         if ($query->rowCount() == 0) { return false; } 
@@ -38,7 +38,7 @@ class Topics {
     }
 
     public function getReplies($topic) {
-        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT * FROM forum_posts INNER JOIN accounts WHERE accounts.steamID = forum_posts.author AND forum_posts.topic_id = :id ORDER BY posted ASC");
+        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT forum_posts.id, forum_posts.title, forum_posts.content, accounts.steamName, accounts.steamID, accounts.steampfpmed, accounts.steampfplarge, forum_posts.posted  FROM forum_posts INNER JOIN accounts WHERE accounts.steamID = forum_posts.author AND forum_posts.topic_id = :id ORDER BY posted ASC");
         $query->execute(array(":id" => $topic));
         
         if ($query->rowCount() == 0) { return false; } 

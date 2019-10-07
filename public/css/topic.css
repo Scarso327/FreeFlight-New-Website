@@ -21,6 +21,36 @@
     color: #b4b4b4;
 }
 
+.topic-header.reply .topic-header-info {
+    padding: 0;
+}
+
 .topic-content {
     padding: 10px;
+    margin-top: 10px;
+}
+
+.topic-content.reply {
+    display: flex;
+}
+
+.topic-content.reply .reply-author {
+    margin-right: 15px;
+    text-align: center;
+}
+
+.topic-content.reply .reply-author img {
+    height: 110px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.topic-content.reply .reply-author h4.title {
+    padding: 4px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.topic-content.reply .reply-body {
+    /* border-left: 1px solid #5b5e60; */
 }
