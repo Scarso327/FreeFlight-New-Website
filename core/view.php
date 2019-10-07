@@ -28,7 +28,7 @@ class View {
                 if($this->css != null) {
                     foreach ($this->css as $css) {
                         ?>
-                        <link rel="stylesheet" href="<?php echo URL; ?>css/<?=$cssPrefix;?><?=$css;?>?v=<?=time();?>" type="text/css" />
+                        <link rel="stylesheet" href="<?php echo URL; ?>css/<?=$css;?>?v=<?=time();?>" type="text/css" />
                         <?php
                     }
                 }
