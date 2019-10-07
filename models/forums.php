@@ -18,7 +18,7 @@ class Forum {
     }
 
     public function getSections($category) {
-        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT id, title, (SELECT COUNT(id) FROM forum_topics WHERE section_id = forum_sections.id) as topicCount FROM forum_sections WHERE category_id = :id ORDER BY `order`");
+        $query = Database::getFactory()->getConnection(SETTING["db-name"])->prepare("SELECT id, title, (SELECT COUNT(id) FROM forum_posts WHERE section_id = forum_sections.id) as topicCount FROM forum_sections WHERE category_id = :id ORDER BY `order`");
         $query->execute(array(":id" => $category));
         
         if ($query->rowCount() == 0) { return false; } 

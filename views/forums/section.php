@@ -13,7 +13,34 @@
                     ?>
                     <li class="forum-item">
                         <div class="item-section main">
-                            <a href="<?=URL;?>forums/forum/<?=$this->section->id;?>/<?=$topic->id;?>"><h4><?=$topic->title;?></h4></a>
+                            <a href="<?=URL;?>forums/forum/<?=$this->section->id;?>/<?=$topic->tID;?>"><h4><?=$topic->title;?></h4></a>
+                        </div>
+                        <div class="item-section stats">
+                            <dl>
+                                <dt><?=$topic->replyCount;?> <?=($topic->replyCount == 1) ? "Reply" : "Replies";?></dt>
+                                <dd>0 Views</dd>
+                            </dl>
+                        </div>
+                        <div class="item-section last-post">
+                            <?php
+                            $lastReply = Topics::getLastReply($topic->tID);
+
+                            if ($topic->replyCount >= 1 && $lastReply) {
+                                ?>
+                                <div class="last-post-card">
+                                    <a href="<?=URL;?>forums/user/<?=$lastReply->steamID;?>"><img src="<?=$lastReply->steampfpmed;?>"/></a>
+                                    <dl>
+                                        <dt><a href="<?=URL;?>forums/user/<?=$lastReply->steamID;?>"><?=$lastReply->steamName;?></a></dt>
+                                        <dd><a href="<?=URL;?>forums/forum/<?=$this->section->id;?>/<?=$topic->tID;?>/#<?=$lastReply->id;?>"><?=Application::formatTime($lastReply->posted);?></a></dd>
+                                    </dl>
+                                </div>
+                                <?php
+                            } else {
+                                ?>
+                                <p>No replies yet</p>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </li>
                     <?php

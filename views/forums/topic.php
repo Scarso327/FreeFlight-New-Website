@@ -14,4 +14,15 @@
             <?=$this->topic->content;?>
         </div>
     </section>
+    <?php
+    foreach($this->topic->replies as $reply) {
+        ?>
+        <section class="forum-section">
+            <div class="topic-content">
+                <?=$reply->steamName;?> replied with: <?=$reply->content;?>
+            </div>
+        </section>
+        <?php
+    }
+    ?>
 </div>

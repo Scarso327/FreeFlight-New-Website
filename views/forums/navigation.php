@@ -31,14 +31,21 @@
                                 </div>
                                 <div class="item-section last-post">
                                     <?php
-                                    $lastTopic = Topics::getLastTopic($section->id);
+                                    $lastTopic = Topics::getLastPost($section->id);
 
                                     if ($section->topicCount >= 1 && $lastTopic) {
+                                        $topicID = $lastTopic->id;
+                                        $jump = "";
+
+                                        if ($lastTopic->topic_id != -1) {
+                                            $topicID = $lastTopic->topic_id;
+                                            $jump = "#".$lastTopic->id;
+                                        }
                                         ?>
                                         <div class="last-post-card">
                                             <a href="<?=URL;?>forums/user/<?=$lastTopic->steamID;?>"><img src="<?=$lastTopic->steampfpmed;?>"/></a>
                                             <dl>
-                                                <dt><a href="<?=URL;?>forums/forum/<?=$section->id;?>/<?=$lastTopic->id;?>"><?=$lastTopic->title;?></a></dt>
+                                                <dt><a href="<?=URL;?>forums/forum/<?=$section->id;?>/<?=$topicID;?>/<?=$jump;?>"><?=$lastTopic->title;?></a></dt>
                                                 <dd><?=Application::formatTime($lastTopic->posted);?></dd>
                                             </dl>
                                         </div>

@@ -23,12 +23,19 @@
             <?php
             if ($this->activity) {
                 foreach($this->activity as $activity) {
+                    $topicID = $activity->id;
+                    $jump = "";
+
+                    if ($activity->topic_id != -1) {
+                        $topicID = $activity->topic_id;
+                        $jump = "#".$activity->id;
+                    }
                     ?>
                     <div class="activity-card">
                         <img src="<?=$activity->steampfpmed;?>"/>
                         <div class="activity-info">
-                            <a href="<?=URL;?>forums/forum/<?=$activity->sID;?>/<?=$activity->id;?>"><h1><?=$activity->title;?></h1></a>
-                            <p><a href="<?=URL;?>forums/user/<?=$activity->steamID;?>"><?=$activity->steamName;?></a> posted a topic in <a href="<?=URL;?>forums/forum/<?=$activity->sID;?>"><?=$activity->sTitle;?></a>, <?=Application::formatTime($activity->posted);?></p>
+                            <a href="<?=URL;?>forums/forum/<?=$activity->sID;?>/<?=$topicID;?>/<?=$jump;?>"><h1><?=$activity->title;?></h1></a>
+                            <p><a href="<?=URL;?>forums/user/<?=$activity->steamID;?>"><?=$activity->steamName;?></a> <?=($activity->topic_id != -1) ? "replied to" : "posted"?> a topic in <a href="<?=URL;?>forums/forum/<?=$activity->sID;?>"><?=$activity->sTitle;?></a>, <?=Application::formatTime($activity->posted);?></p>
                         </div>
                     </div>
                     <?php
