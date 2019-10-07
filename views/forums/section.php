@@ -48,6 +48,10 @@
                     </li>
                     <?php
                 }
+            } else {
+                ?>
+                <h4 class="empty-text">No Topics</h4>
+                <?php
             }
             ?>
         </ol>

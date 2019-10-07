@@ -60,6 +60,10 @@
                             </li>
                             <?php
                         }
+                    } else {
+                        ?>
+                        <h4 class="empty-text">No Forums</h4>
+                        <?php
                     }
                     ?>
                 </ol>

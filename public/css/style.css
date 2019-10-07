@@ -193,6 +193,12 @@ main {
     list-style: none;
 }
 
+.forum-section .forum-content .empty-text {
+    text-align: center;
+    padding: 15px;
+    font-weight: normal;
+}
+
 .forum-section .forum-content .forum-item {
     display: flex;
     flex-direction: row;
