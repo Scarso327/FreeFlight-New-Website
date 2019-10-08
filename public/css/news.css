@@ -16,6 +16,7 @@
     margin: 0;
     overflow: hidden;
     opacity: 0.6;
+    border-radius: 10px;
 }
 
 .news-card .news-image img {
