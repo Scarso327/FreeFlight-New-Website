@@ -63,6 +63,13 @@ nav.main-nav .nav-content img {
     max-height: 64px;
 }
 
+nav.main-nav .nav-content .nav-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-content: center;
+}
+
 nav.main-nav .nav-content .nav-item {
     text-align: center;
     line-height: 64px;
@@ -76,7 +83,7 @@ nav.main-nav .nav-content .nav-item:hover {
 
 nav.main-nav .nav-content .nav-item.active {
     color: white;
-    background-color: #181b1e;
+    /* background-color: #181b1e; */
 }
 
 nav.main-nav .nav-content .nav-item.right {

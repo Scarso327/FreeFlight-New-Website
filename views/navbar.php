@@ -3,16 +3,18 @@
         <div class="site-logo">
             <img src="<?=URL;?>img/logo-noname-white.png"/>
         </div>
-        <a class="nav-item<?php if (View::ButtonActive("Home")) { echo ' active'; } ?>" href="<?=URL;?>">
-            Home
-        </a>
-        <a class="nav-item<?php if (View::ButtonActive("Forums")) { echo ' active'; } ?>" href="<?=URL;?>forums/">
-            Forums
-        </a>
+        <div class="nav-buttons">
+            <a class="nav-item<?php if (View::ButtonActive("Home")) { echo ' active'; } ?>" href="<?=URL;?>">
+                Home
+            </a>
+            <a class="nav-item<?php if (View::ButtonActive("Forums")) { echo ' active'; } ?>" href="<?=URL;?>forums/">
+                Community
+            </a>
+        </div>
         <?php
         if (Account::isLoggedIn()) {
             ?>
-            <div class = "nav-item<?php if (View::ButtonActive(Session::get("steaminfo")["steam-name"])) { echo ' active'; } ?> right dropdown">
+            <div class = "nav-item<?php if (View::ButtonActive(Session::get("steaminfo")["steam-name"])) { echo ' active'; } ?> dropdown">
                 <a class="nav-profile" href="">
                     <img src="<?=Session::get("steaminfo")["steam-pfp-medium"];?>" alt="PFP"/>
                     <span><?=Session::get("steaminfo")["steam-name"];?> <span class="fas fa-caret-down"></span></span>
@@ -29,7 +31,7 @@
             <?php
         } else {
             ?>
-            <a class="nav-item right" href="<?=URL;?>login">
+            <a class="nav-item" href="<?=URL;?>login">
                 Login <span class="fas fa-sign-in-alt"></span> 
             </a>
             <?php
