@@ -8,7 +8,7 @@
                 Home
             </a>
             <a class="nav-item<?php if (View::ButtonActive("Forums")) { echo ' active'; } ?>" href="<?=URL;?>forums/">
-                Community
+                Forums
             </a>
         </div>
         <?php
