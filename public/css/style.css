@@ -81,7 +81,7 @@ nav.main-nav .nav-content .nav-item:hover {
     color: white;
 }
 
-nav.main-nav .nav-content .nav-item.active {
+nav.main-nav .nav-content .nav-item.active, nav.main-nav .nav-content .nav-item.active.dropdown .dropdown-text a {
     color: white;
     /* background-color: #181b1e; */
 }
